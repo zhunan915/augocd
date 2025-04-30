@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend-query-deployment
+  name: backend-query
   namespace: qa
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: frontend-query
+      app: backend-query
   template:
     metadata:
       labels:
-        app: frontend-query
+        app: backend-query
     spec:
       containers:
-      - name: frontend-query
-        image: 781942218065.dkr.ecr.us-east-1.amazonaws.com/final-ecr/frontend-query:v1.0.0
+      - name: backend-query
+        image: 781942218065.dkr.ecr.us-east-1.amazonaws.com/final-ecr/backend-query:v1.0.0
         ports:
         - containerPort: 8001
