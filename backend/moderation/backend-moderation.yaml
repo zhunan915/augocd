@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-moderation
+  namespace: uat
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend-moderation
+  template:
+    metadata:
+      labels:
+        app: backend-moderation
+    spec:
+      containers:
+      - name: backend-moderation
+        image: 781942218065.dkr.ecr.us-east-1.amazonaws.com/backend/moderation:20250430-160144
+        ports:
+        - containerPort: 8004

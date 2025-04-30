@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-query
+  namespace: uat
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend-query
+  template:
+    metadata:
+      labels:
+        app: backend-query
+    spec:
+      containers:
+      - name: backend-query
+        image: 781942218065.dkr.ecr.us-east-1.amazonaws.com/backend/query:v1.0.0
+        ports:
+        - containerPort: 8003

@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-event-bus
+  namespace: uat
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend-event-bus
+  template:
+    metadata:
+      labels:
+        app: backend-event-bus
+    spec:
+      containers:
+      - name: backend-event-bus
+        image: 781942218065.dkr.ecr.us-east-1.amazonaws.com/backend/event-bus:20250430-155935
+        ports:
+        - containerPort: 8005
