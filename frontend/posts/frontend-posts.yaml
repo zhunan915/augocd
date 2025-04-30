@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
       - name: frontend-posts
-        image: 781942218065.dkr.ecr.us-east-1.amazonaws.com/final-ecr/frontend-posts:v1.0.0
+        image: 781942218065.dkr.ecr.us-east-1.amazonaws.com/final-ecr/frontend-posts:v1.0.1
         ports:
         - containerPort: 8001
