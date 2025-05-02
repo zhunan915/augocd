@@ -20,6 +20,6 @@ spec:
         - containerPort: 8004
         readinessProbe:
           tcpSocket:
-            port: 8002
+            port: 8004
           initialDelaySeconds: 5
           periodSeconds: 10
