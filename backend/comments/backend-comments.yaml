@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
       - name: backend-comments
-        image: 781942218065.dkr.ecr.us-east-1.amazonaws.com/backend/comments:20250430-155250
+        image: 781942218065.dkr.ecr.us-east-1.amazonaws.com/backend/comments:20250502-031610
         ports:
         - containerPort: 8002
