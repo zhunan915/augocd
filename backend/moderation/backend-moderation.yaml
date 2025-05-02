@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
       - name: backend-moderation
-        image: 781942218065.dkr.ecr.us-east-1.amazonaws.com/backend/moderation:20250502-031758
+        image: 781942218065.dkr.ecr.us-east-1.amazonaws.com/backend/moderation:20250502-065845
         ports:
         - containerPort: 8004
