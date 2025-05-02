@@ -18,3 +18,8 @@ spec:
         image: 781942218065.dkr.ecr.us-east-1.amazonaws.com/frontend/client:20250502-030240
         ports:
         - containerPort: 3000
+        readinessProbe:
+          tcpSocket:
+            port: 3000
+          initialDelaySeconds: 5
+          periodSeconds: 10
