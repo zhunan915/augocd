@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend-posts-deployment
+  name: backend-posts
   namespace: prod
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: frontend-posts
+      app: backend-posts
   template:
     metadata:
       labels:
-        app: frontend-posts
+        app: backend-posts
     spec:
       containers:
-      - name: frontend-posts
-        image: 781942218065.dkr.ecr.us-east-1.amazonaws.com/final-ecr/frontend-posts:v1.0.0
+      - name: backend-posts
+        image: 781942218065.dkr.ecr.us-east-1.amazonaws.com/backend/posts:v1.0.0
         ports:
         - containerPort: 8001
