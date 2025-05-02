@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
       - name: backend-posts
-        image: 781942218065.dkr.ecr.us-east-1.amazonaws.com/backend/posts:20250430-165947
+        image: 781942218065.dkr.ecr.us-east-1.amazonaws.com/backend/posts:20250502-031906
         ports:
         - containerPort: 8001
