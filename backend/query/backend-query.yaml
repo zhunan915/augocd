@@ -17,9 +17,9 @@ spec:
       - name: backend-query
         image: 781942218065.dkr.ecr.us-east-1.amazonaws.com/backend/query:20250502-031950
         ports:
-        - containerPort: 8001
+        - containerPort: 8003
         readinessProbe:
           tcpSocket:
-            port: 8001
+            port: 8003
           initialDelaySeconds: 5
           periodSeconds: 10
