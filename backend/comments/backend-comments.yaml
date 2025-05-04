@@ -14,12 +14,21 @@ spec:
         app: backend-comments
     spec:
       containers:
-      - name: backend-comments
-        image: 781942218065.dkr.ecr.us-east-1.amazonaws.com/backend/comments:20250502-031610
-        ports:
-        - containerPort: 8002
-        readinessProbe:
-          tcpSocket:
-            port: 8002
-          initialDelaySeconds: 5
-          periodSeconds: 10
+        - name: backend-comments
+          image: 781942218065.dkr.ecr.us-east-1.amazonaws.com/backend/comments:20250503-192949
+          ports:
+            - containerPort: 8002
+          readinessProbe:
+            tcpSocket:
+              port: 8002
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          volumeMounts:
+            - name: comments-index-volume
+              mountPath: /usr/app/comments/index.js
+              subPath: index.js
+      volumes:
+        - name: comments-index-volume
+          configMap:
+            name: backend-comments-index-js
+
