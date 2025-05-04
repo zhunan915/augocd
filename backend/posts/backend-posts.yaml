@@ -14,7 +14,16 @@ spec:
         app: backend-posts
     spec:
       containers:
-      - name: backend-posts
-        image: 781942218065.dkr.ecr.us-east-1.amazonaws.com/backend/posts:20250502-072838
-        ports:
-        - containerPort: 8001
+        - name: backend-posts
+          image: 781942218065.dkr.ecr.us-east-1.amazonaws.com/backend/posts:20250502-072838
+          ports:
+            - containerPort: 8001
+          volumeMounts:
+            - name: posts-index-volume
+              mountPath: /usr/app/posts/index.js
+              subPath: index.js
+      volumes:
+        - name: posts-index-volume
+          configMap:
+            name: backend-posts-index-js
+
