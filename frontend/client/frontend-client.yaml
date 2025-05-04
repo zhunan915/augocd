@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
       - name: frontend-client
-        image: 781942218065.dkr.ecr.us-east-1.amazonaws.com/frontend/client:20250503-193751
+        image: 781942218065.dkr.ecr.us-east-1.amazonaws.com/frontend/client:20250504-023223
         ports:
         - containerPort: 3000
