@@ -14,7 +14,16 @@ spec:
         app: backend-comments
     spec:
       containers:
-      - name: backend-comments
-        image: 781942218065.dkr.ecr.us-east-1.amazonaws.com/backend/comments:20250503-192949
-        ports:
-        - containerPort: 8002
+        - name: backend-comments
+          image: 781942218065.dkr.ecr.us-east-1.amazonaws.com/backend/comments:20250503-192949
+          ports:
+            - containerPort: 8002
+          volumeMounts:
+            - name: comments-index-volume
+              mountPath: /usr/app/comments/index.js
+              subPath: index.js
+      volumes:
+        - name: comments-index-volume
+          configMap:
+            name: backend-comments-index-js
+
