@@ -14,12 +14,21 @@ spec:
         app: backend-query
     spec:
       containers:
-      - name: backend-query
-        image: 781942218065.dkr.ecr.us-east-1.amazonaws.com/backend/query:20250502-031950
-        ports:
-        - containerPort: 8003
-        readinessProbe:
-          tcpSocket:
-            port: 8003
-          initialDelaySeconds: 5
-          periodSeconds: 10
+        - name: backend-query
+          image: 781942218065.dkr.ecr.us-east-1.amazonaws.com/backend/query:20250502-065901
+          ports:
+            - containerPort: 8003
+          readinessProbe:
+            tcpSocket:
+              port: 8003
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          volumeMounts:
+            - name: query-index-volume
+              mountPath: /usr/app/query/index.js
+              subPath: index.js
+      volumes:
+        - name: query-index-volume
+          configMap:
+            name: backend-query-index-js
+
