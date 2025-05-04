@@ -14,12 +14,39 @@ spec:
         app: frontend-client
     spec:
       containers:
-      - name: frontend-client
-        image: 781942218065.dkr.ecr.us-east-1.amazonaws.com/frontend/client:20250502-030240
-        ports:
-        - containerPort: 3000
-        readinessProbe:
-          tcpSocket:
-            port: 3000
-          initialDelaySeconds: 5
-          periodSeconds: 10
+        - name: frontend-client
+          image: 781942218065.dkr.ecr.us-east-1.amazonaws.com/frontend/client:20250503-193751
+          ports:
+            - containerPort: 3000
+          readinessProbe:
+            tcpSocket:
+              port: 3000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          volumeMounts:
+            - name: comment-create-volume
+              mountPath: /usr/app/client/src/CommentCreate.js
+              subPath: CommentCreate.js
+            - name: comment-list-volume
+              mountPath: /usr/app/client/src/CommentList.js
+              subPath: CommentList.js
+            - name: post-create-volume
+              mountPath: /usr/app/client/src/PostCreate.js
+              subPath: PostCreate.js
+            - name: post-list-volume
+              mountPath: /usr/app/client/src/PostList.js
+              subPath: PostList.js
+      volumes:
+        - name: comment-create-volume
+          configMap:
+            name: frontend-comment-create-js
+        - name: comment-list-volume
+          configMap:
+            name: frontend-comment-list-js
+        - name: post-create-volume
+          configMap:
+            name: frontend-post-create-js
+        - name: post-list-volume
+          configMap:
+            name: frontend-post-list-js
+
