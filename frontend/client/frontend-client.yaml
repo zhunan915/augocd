@@ -14,7 +14,14 @@ spec:
         app: frontend-client
     spec:
       containers:
-      - name: frontend-client
-        image: 781942218065.dkr.ecr.us-east-1.amazonaws.com/frontend/client:20250502-030240
-        ports:
-        - containerPort: 3000
+        - name: frontend-client
+          image: 781942218065.dkr.ecr.us-east-1.amazonaws.com/frontend/client:20250503-193751
+          ports:
+            - containerPort: 3000
+          volumeMounts:
+            - name: frontend-scripts-volume
+              mountPath: /usr/app/client/src
+      volumes:
+        - name: frontend-scripts-volume
+          configMap:
+            name: frontend-scripts
