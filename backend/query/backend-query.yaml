@@ -1,17 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: backend-query
+  name: backend-query-green
   namespace: prod
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: backend-query
+      app: backend-query-green
   template:
     metadata:
       labels:
-        app: backend-query
+        app: backend-query-green
     spec:
       containers:
         - name: backend-query

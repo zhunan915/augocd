@@ -1,17 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend-client
+  name: frontend-client-green
   namespace: prod
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: frontend-client
+      app: frontend-client-green
   template:
     metadata:
       labels:
-        app: frontend-client
+        app: frontend-client-green
     spec:
       containers:
         - name: frontend-client

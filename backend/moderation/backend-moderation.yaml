@@ -1,17 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: backend-moderation
+  name: backend-moderation-green
   namespace: prod
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: backend-moderation
+      app: backend-moderation-green
   template:
     metadata:
       labels:
-        app: backend-moderation
+        app: backend-moderation-green
     spec:
       containers:
       - name: backend-moderation

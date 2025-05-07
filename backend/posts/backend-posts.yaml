@@ -1,17 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: backend-posts
+  name: backend-posts-green
   namespace: prod
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: backend-posts
+      app: backend-posts-green
   template:
     metadata:
       labels:
-        app: backend-posts
+        app: backend-posts-green
     spec:
       containers:
         - name: backend-posts

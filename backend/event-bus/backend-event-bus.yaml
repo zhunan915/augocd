@@ -1,17 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: backend-event-bus
+  name: backend-event-bus-green
   namespace: prod
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: backend-event-bus
+      app: backend-event-bus-green
   template:
     metadata:
       labels:
-        app: backend-event-bus
+        app: backend-event-bus-green
     spec:
       containers:
       - name: backend-event-bus
